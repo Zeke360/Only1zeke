@@ -176,3 +176,157 @@ document.addEventListener("DOMContentLoaded", function () {
     contact.querySelector("div").appendChild(info);
   }
 });
+
+/* ONLY1ZEKE — 15% BOOKING DEPOSIT CALCULATOR */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector(
+    'form[name="appointment-request"]'
+  );
+  if (!form) return;
+
+  const service = form.querySelector("#service");
+  const adults = form.querySelector("#adult-count");
+  const kids = form.querySelector("#kid-count");
+  const distance = form.querySelector("#distance-range");
+
+  const servicePrices = {
+    0: 20,
+    1: 40,
+    2: 30,
+    3: 40,
+    4: 20,
+    5: 20,
+    6: 10,
+    7: 25,
+    8: 30,
+    9: 20,
+    10: 10,
+    11: 15,
+    12: 40,
+    13: 60,
+    14: 10
+  };
+
+  const travelFees = [0, 5, 10, 15, 20, 30, 40, null];
+
+  const panel = document.createElement("section");
+  panel.className = "schedule-note";
+  panel.style.marginTop = "20px";
+
+  panel.innerHTML = `
+    <h3>BOOKING DEPOSIT</h3>
+    <p>A 15% deposit is required to confirm
+    your appointment.</p>
+
+    <p>Service total:
+      <strong id="booking-total">—</strong>
+    </p>
+
+    <p>15% deposit:
+      <strong id="booking-deposit">—</strong>
+    </p>
+
+    <p>Remaining balance:
+      <strong id="booking-balance">—</strong>
+    </p>
+
+    <p id="booking-payment-status">
+      Select your service to see the deposit.
+    </p>
+
+    <p><small>
+      Appointment requests are not confirmed
+      until availability is approved and the
+      required deposit is successfully paid.
+      Online deposit checkout is not active yet.
+    </small></p>
+  `;
+
+  const submit = form.querySelector(
+    'button[type="submit"]'
+  );
+
+  if (submit) {
+    form.insertBefore(panel, submit);
+    submit.textContent = "REQUEST APPOINTMENT";
+  }
+
+  const money = value => "$" + value.toFixed(2);
+
+  function updateDeposit() {
+    const selected = service.value;
+    const isHouseCall = selected === "12" || selected === "13";
+
+    let total = servicePrices[selected];
+
+    if (total === undefined) {
+      showValues(null);
+      return;
+    }
+
+    if (isHouseCall) {
+      const adultCount = Number(adults?.value || 0);
+      const kidCount = Number(kids?.value || 0);
+      const count = adultCount + kidCount;
+
+      if (!count || !distance || distance.value === "") {
+        showValues(null);
+        return;
+      }
+
+      const fee = travelFees[Number(distance.value)];
+
+      if (count === 1 && fee === null) {
+        showValues(null, "Custom quote required.");
+        return;
+      }
+
+      total = adultCount * 60 + kidCount * 40;
+
+      if (count === 1) {
+        total += fee;
+      }
+    }
+
+    showValues(total);
+  }
+
+  function showValues(total, message) {
+    const totalEl = panel.querySelector("#booking-total");
+    const depositEl = panel.querySelector("#booking-deposit");
+    const balanceEl = panel.querySelector("#booking-balance");
+    const statusEl = panel.querySelector(
+      "#booking-payment-status"
+    );
+
+    if (total === null) {
+      totalEl.textContent = "—";
+      depositEl.textContent = "—";
+      balanceEl.textContent = "—";
+      statusEl.textContent =
+        message || "Complete the service details above.";
+      return;
+    }
+
+    const deposit = Math.round(total * 15) / 100;
+    const balance = Math.round((total - deposit) * 100) / 100;
+
+    totalEl.textContent = money(total);
+    depositEl.textContent = money(deposit);
+    balanceEl.textContent = money(balance);
+
+    statusEl.textContent =
+      "Deposit required before confirmation. " +
+      "Secure online payment setup is pending.";
+  }
+
+  [service, adults, kids, distance].forEach(element => {
+    if (element) {
+      element.addEventListener("change", updateDeposit);
+      element.addEventListener("input", updateDeposit);
+    }
+  });
+
+  updateDeposit();
+});
