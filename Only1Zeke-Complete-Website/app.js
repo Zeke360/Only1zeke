@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const distance = form.querySelector("#distance-range");
 
   const servicePrices = {
-    0: 20,
+    
     1: 40,
     2: 30,
     3: 40,
