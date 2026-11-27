@@ -350,12 +350,12 @@ pricing are subject to verification.
 <h2>BOOKING & PAYMENT POLICY</h2>
 
 <p>
-A 15% deposit is required to confirm
+A 50% deposit is required to confirm
 your appointment.
 </p>
 
 <p>
-The remaining 85% is due at the appointment.
+The remaining 50% is due at the appointment.
 </p>
 
 <p>
@@ -552,7 +552,7 @@ function formatMoney(amount) {
 
 menuServices.forEach(item => {
 
-  const deposit = Math.round(item.price * 15) / 100;
+ const deposit = Math.round(item.price * 50) / 100;
   const balance = item.price - deposit;
   const mobile = item.group === "house";
 
