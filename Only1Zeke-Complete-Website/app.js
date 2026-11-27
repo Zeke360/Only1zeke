@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-/* ONLY1ZEKE — 15% BOOKING DEPOSIT CALCULATOR */
+/* ONLY1ZEKE — 50% BOOKING DEPOSIT CALCULATOR */
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector(
@@ -216,14 +216,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   panel.innerHTML = `
     <h3>BOOKING DEPOSIT</h3>
-    <p>A 15% deposit is required to confirm
+    <p>A 50% deposit is required to confirm
     your appointment.</p>
 
     <p>Service total:
       <strong id="booking-total">—</strong>
     </p>
 
-    <p>15% deposit:
+    <p>50% deposit:
       <strong id="booking-deposit">—</strong>
     </p>
 
@@ -309,7 +309,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const deposit = Math.round(total * 15) / 100;
+    const deposit = Math.round(total * 50) / 100;
     const balance = Math.round((total - deposit) * 100) / 100;
 
     totalEl.textContent = money(total);
