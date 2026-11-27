@@ -1,1 +1,901 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#09090b">
+
+<title>Schedule | Only1Zeke</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.booking-container {
+  max-width: 950px;
+  margin: auto;
+}
+
+.booking-section {
+  background: #151517;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 25px;
+  margin: 25px 0;
+  color: white;
+}
+
+.booking-section h2 {
+  border-left: 4px solid #e52435;
+  padding-left: 12px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.booking-section h3 {
+  color: #ff3949;
+  margin-top: 25px;
+}
+
+.booking-section label {
+  display: block;
+  margin: 12px 0 7px;
+  color: white;
+}
+
+.booking-section input,
+.booking-section select,
+.booking-section textarea {
+  width: 100%;
+  background: #09090b;
+  border: 1px solid #444;
+  color: white;
+  padding: 13px;
+  border-radius: 6px;
+  box-sizing: border-box;
+  color-scheme: dark;
+}
+
+.service-option {
+  display: grid;
+  grid-template-columns: 1fr 80px;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid #333;
+  padding: 15px 0;
+}
+
+.service-option strong {
+  color: white;
+}
+
+.service-option small {
+  display: block;
+  color: #aaa;
+  margin-top: 5px;
+}
+
+.service-option input {
+  text-align: center;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.booking-notice {
+  background: #291317;
+  border: 1px solid #a91826;
+  border-radius: 8px;
+  padding: 18px;
+  margin: 20px 0;
+  color: white;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 12px 0;
+  border-bottom: 1px solid #333;
+}
+
+.deposit-amount {
+  color: #ff3949;
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.booking-submit {
+  width: 100%;
+  background: #c91e2e;
+  color: white;
+  padding: 17px;
+  font-size: 16px;
+  font-weight: 900;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.booking-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.booking-section .check-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.booking-section .check-row input {
+  width: 20px;
+  flex-shrink: 0;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+#booking-error {
+  color: #ff8b95;
+}
+
+#selected-summary {
+  line-height: 1.8;
+  color: #ddd;
+}
+
+@media (max-width: 600px) {
+
+  .field-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-section {
+    padding: 17px;
+  }
+
+  .service-option {
+    grid-template-columns: 1fr 65px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+
+<a class="brand" href="index.html">
+  <span class="brand-mark">1Z</span>
+  <span>
+    ONLY<span class="red">1</span>ZEKE
+    <small>ZERO ERRORS. KILLER EDGES.</small>
+  </span>
+</a>
+
+<button class="menu-toggle"
+  aria-expanded="false"
+  aria-controls="site-nav"
+  aria-label="Open navigation">☰</button>
+
+<nav id="site-nav" aria-label="Main navigation">
+  <a href="index.html">Home</a>
+  <a href="prices.html">Services & Prices</a>
+  <a href="schedule.html" class="active">Schedule</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="mission.html">Our Mission</a>
+  <a href="rewards.html">Rewards</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+</header>
+
+<main class="page-main booking-container">
+
+<p class="eyebrow">YOUR NEXT FRESH CUT</p>
+
+<h1>LET'S GET <span class="red">YOU BOOKED.</span></h1>
+
+<p class="lead">
+Choose your services, preferred appointment
+date and time. Look good, feel good,
+and stay fresh.
+</p>
+
+<div class="booking-notice">
+  <strong>BOOKING REQUIREMENT</strong>
+  <p>
+    A 15% deposit is required to confirm
+    your appointment. The remaining 85%
+    is due at your appointment.
+  </p>
+  <p>
+    Appointment requests are subject to
+    availability and payment confirmation.
+  </p>
+</div>
+
+<form name="appointment-request"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  action="thanks.html">
+
+<input type="hidden"
+  name="form-name"
+  value="appointment-request">
+
+<p hidden>
+  <label>
+    Do not fill this out
+    <input name="bot-field">
+  </label>
+</p>
+
+<input type="hidden" name="booking-type"
+  id="saved-booking-type">
+
+<input type="hidden" name="service"
+  id="saved-service">
+
+<input type="hidden" name="selected-services"
+  id="saved-services">
+
+<input type="hidden" name="service-total"
+  id="saved-total">
+
+<input type="hidden" name="deposit"
+  id="saved-deposit">
+
+<input type="hidden" name="remaining-balance"
+  id="saved-balance">
+
+<input type="hidden" name="estimated-duration"
+  id="saved-duration">
+
+<input type="hidden" name="payment-status"
+  value="Unpaid">
+
+<section class="booking-section">
+
+<h2>01 — CUSTOMER INFORMATION</h2>
+
+<label for="client-name">Full name *</label>
+<input id="client-name" name="name"
+  autocomplete="name" required>
+
+<div class="field-grid">
+
+<div>
+<label for="client-email">Email *</label>
+<input id="client-email" name="email"
+  type="email" autocomplete="email" required>
+</div>
+
+<div>
+<label for="client-phone">Phone number *</label>
+<input id="client-phone" name="phone"
+  type="tel" autocomplete="tel" required>
+</div>
+
+</div>
+
+</section>
+
+<section class="booking-section">
+
+<h2>02 — APPOINTMENT TYPE</h2>
+
+<label for="appointment-type">
+Choose your appointment type
+</label>
+
+<select id="appointment-type" required>
+  <option value="shop">Regular Barber Appointment</option>
+  <option value="house">Mobile House Call</option>
+</select>
+
+</section>
+
+<section class="booking-section" id="regular-services">
+
+<h2>03 — SELECT YOUR SERVICES</h2>
+
+<p>
+Enter the quantity for each service you want.
+Leave unwanted services at zero.
+</p>
+
+<h3>Adult Barber Services</h3>
+<div id="adult-options"></div>
+
+<h3>Kids Barber Services</h3>
+<div id="kids-options"></div>
+
+<h3>Grooming & Additional Services</h3>
+<div id="grooming-options"></div>
+
+</section>
+
+<section class="booking-section" id="mobile-services" hidden>
+
+<h2>03 — MOBILE HOUSE CALL</h2>
+
+<p>
+House calls originate from Buffalo, New York.
+</p>
+
+<div class="field-grid">
+
+<div>
+<label for="adult-count">Adults — $60 each</label>
+<input type="number" id="adult-count"
+  name="adult-count" min="0" max="20"
+  step="1" value="0" disabled>
+</div>
+
+<div>
+<label for="kid-count">Kids — $40 each</label>
+<input type="number" id="kid-count"
+  name="kid-count" min="0" max="20"
+  step="1" value="0" disabled>
+</div>
+
+</div>
+
+<label for="house-address">Service address *</label>
+
+<input id="house-address"
+  name="house-address"
+  placeholder="Street address, apartment, city, state, ZIP"
+  disabled>
+
+<label for="distance-range">
+Estimated one-way distance from Buffalo
+</label>
+
+<select id="distance-range"
+  name="distance-range" disabled>
+
+<option value="">Select estimated distance</option>
+<option value="0">0–5 miles</option>
+<option value="1">6–10 miles</option>
+<option value="2">11–15 miles</option>
+<option value="3">16–20 miles</option>
+<option value="4">21–25 miles</option>
+<option value="5">26–35 miles</option>
+<option value="6">36–45 miles</option>
+<option value="7">Over 45 miles</option>
+
+</select>
+
+<div class="booking-notice">
+
+<strong>GROUP HOUSE CALL SPECIAL</strong>
+
+<p>
+Two or more clients at the same address
+receive waived travel fees.
+</p>
+
+<p>
+Final mileage and house-call pricing
+are subject to verification.
+</p>
+
+</div>
+
+</section>
+
+<section class="booking-section">
+
+<h2>04 — DATE & TIME</h2>
+
+<div class="field-grid">
+
+<div>
+<label for="date">Preferred date *</label>
+<input type="date" id="date"
+  name="preferred-date" required>
+</div>
+
+<div>
+<label for="preferred-time">Preferred time *</label>
+<input type="time" id="preferred-time"
+  name="preferred-time" required>
+</div>
+
+</div>
+
+<p>
+Your requested date and time are subject
+to barber approval.
+</p>
+
+<label for="details">Additional instructions</label>
+
+<textarea id="details" name="notes"
+  rows="4" maxlength="1000"
+  placeholder="Haircut preferences, designs or other instructions"></textarea>
+
+</section>
+
+<section class="booking-section">
+
+<h2>05 — BOOKING SUMMARY</h2>
+
+<div id="selected-summary">
+No services selected.
+</div>
+
+<div class="summary-row">
+  <span>Estimated service duration</span>
+  <strong id="summary-duration">—</strong>
+</div>
+
+<div class="summary-row">
+  <span>Service subtotal</span>
+  <strong id="summary-subtotal">$0.00</strong>
+</div>
+
+<div class="summary-row">
+  <span>Travel fee</span>
+  <strong id="summary-travel">$0.00</strong>
+</div>
+
+<div class="summary-row">
+  <span>Estimated total</span>
+  <strong id="summary-total">$0.00</strong>
+</div>
+
+<div class="summary-row">
+  <span>Required 15% deposit</span>
+  <strong class="deposit-amount"
+    id="summary-deposit">$0.00</strong>
+</div>
+
+<div class="summary-row">
+  <span>Remaining balance</span>
+  <strong id="summary-balance">$0.00</strong>
+</div>
+
+<p id="booking-error" role="status"></p>
+
+<div class="booking-notice">
+
+<strong>PAYMENT INFORMATION</strong>
+
+<p>
+Your deposit must be paid before your
+appointment can be confirmed.
+</p>
+
+<p>
+Online Square checkout is currently
+being prepared. Submitting this form
+does not charge your card or confirm
+your appointment.
+</p>
+
+<p>
+Accepted payment methods:
+Square Tap to Pay, credit card,
+debit card and cash.
+</p>
+
+</div>
+
+<label class="check-row">
+  <input type="checkbox"
+    name="acknowledgment"
+    value="Agreed" required>
+
+  <span>
+    I understand that this is an appointment
+    request and that availability and the
+    required deposit must be confirmed.
+  </span>
+</label>
+
+<button type="submit"
+  class="booking-submit"
+  id="submit-booking" disabled>
+
+  REQUEST APPOINTMENT ↗
+
+</button>
+
+</section>
+
+</form>
+
+</main>
+
+<footer>
+
+<div>
+  <strong>ONLY<span class="red">1</span>ZEKE</strong>
+  <p>Look Good. Feel Good. Stay Fresh.</p>
+</div>
+
+<div>
+  <p>Buffalo, New York</p>
+  <p><a href="tel:+17168660688">(716) 866-0688</a></p>
+  <p>Square Tap to Pay • Card • Cash</p>
+</div>
+
+<p class="footnote">
+© <span id="year"></span> Only1Zeke.
+All rights reserved.
+</p>
+
+</footer>
+
+<script>
+
+/* ONLY1ZEKE — ADVANCED SCHEDULING */
+
+const services = [
+  {id:1, group:"adult", name:"Haircut, Beard & Hot Towel Experience", price:40, minutes:45},
+  {id:2, group:"adult", name:"Haircut", price:30, minutes:35},
+  {id:3, group:"adult", name:"Full Head & Face Shave", price:40, minutes:35},
+  {id:4, group:"adult", name:"Crisp Hair & Beard Lineup", price:20, minutes:15},
+  {id:5, group:"adult", name:"Face Shave", price:20, minutes:20},
+  {id:11, group:"adult", name:"Beard Trim / Lineup", price:15, minutes:10},
+  {id:7, group:"kids", name:"Kids Cuts", price:25, minutes:30},
+  {id:8, group:"kids", name:"Kids Specialty Cuts", price:30, minutes:40},
+  {id:6, group:"grooming", name:"Eyebrows", price:10, minutes:10},
+  {id:9, group:"grooming", name:"Facials", price:20, minutes:10},
+  {id:10, group:"grooming", name:"Enhancements / Shampoo", price:10, minutes:15},
+  {id:14, group:"grooming", name:"Ears & Nose Wax", price:10, minutes:5}
+];
+
+const travelFees = [0,5,10,15,20,30,40,null];
+
+const el = id => document.getElementById(id);
+
+const money = amount => "$" + amount.toFixed(2);
+
+const form = document.querySelector(
+  'form[name="appointment-request"]'
+);
+
+/* CREATE SERVICE OPTIONS */
+
+services.forEach(service => {
+
+  const row = document.createElement("div");
+
+  row.className = "service-option";
+
+  row.innerHTML = `
+    <label for="qty-${service.id}">
+      <strong>${service.name}</strong>
+      <small>
+        ${money(service.price)} •
+        ${service.minutes} minutes
+      </small>
+    </label>
+
+    <input type="number"
+      id="qty-${service.id}"
+      min="0" max="20" step="1" value="0"
+      aria-label="Quantity for ${service.name}">
+  `;
+
+  el(service.group + "-options").appendChild(row);
+
+});
+
+/* LOCAL BUFFALO DATE */
+
+const dateParts = new Intl.DateTimeFormat(
+  "en-US",
+  {
+    timeZone:"America/New_York",
+    year:"numeric",
+    month:"2-digit",
+    day:"2-digit"
+  }
+).formatToParts(new Date());
+
+const datePart = type =>
+  dateParts.find(part => part.type === type).value;
+
+el("date").min =
+  datePart("year") + "-" +
+  datePart("month") + "-" +
+  datePart("day");
+
+/* APPOINTMENT TYPE */
+
+function updateType() {
+
+  const house =
+    el("appointment-type").value === "house";
+
+  el("regular-services").hidden = house;
+  el("mobile-services").hidden = !house;
+
+  el("regular-services")
+    .querySelectorAll("input")
+    .forEach(input => input.disabled = house);
+
+  ["adult-count","kid-count",
+   "house-address","distance-range"]
+    .forEach(id => el(id).disabled = !house);
+
+  el("house-address").required = house;
+
+  calculateBooking();
+
+}
+
+/* VALIDATE QUANTITIES */
+
+function validQuantity(input) {
+
+  const value = Number(input.value);
+
+  return input.value !== "" &&
+    Number.isInteger(value) &&
+    value >= 0 &&
+    value <= 20;
+
+}
+
+/* CALCULATE BOOKING */
+
+function calculateBooking() {
+
+  const house =
+    el("appointment-type").value === "house";
+
+  let subtotal = 0;
+  let travel = 0;
+  let minutes = 0;
+  let selected = [];
+  let error = "";
+  let customQuote = false;
+
+  if (house) {
+
+    const adults = Number(el("adult-count").value);
+    const kids = Number(el("kid-count").value);
+    const count = adults + kids;
+    const distance = el("distance-range").value;
+
+    if (!validQuantity(el("adult-count")) ||
+        !validQuantity(el("kid-count"))) {
+
+      error = "Enter valid whole-number quantities.";
+
+    } else if (count === 0) {
+
+      error = "Select at least one house-call client.";
+
+    } else {
+
+      subtotal = adults * 60 + kids * 40;
+      minutes = count * 35;
+
+      if (adults > 0) {
+        selected.push(
+          adults + " × Adult House Call"
+        );
+      }
+
+      if (kids > 0) {
+        selected.push(
+          kids + " × Kids House Call"
+        );
+      }
+
+      if (!el("house-address").value.trim()) {
+
+        error = "Enter your house-call address.";
+
+      } else if (count === 1 && distance === "") {
+
+        error = "Select your estimated distance.";
+
+      } else if (count === 1 && distance === "7") {
+
+        customQuote = true;
+
+      } else if (count === 1) {
+
+        travel = travelFees[Number(distance)];
+
+      }
+
+    }
+
+    el("distance-range").required = count === 1;
+
+  } else {
+
+    services.forEach(service => {
+
+      const input = el("qty-" + service.id);
+      const quantity = Number(input.value);
+
+      if (!validQuantity(input)) {
+        error = "Enter valid whole-number quantities.";
+        return;
+      }
+
+      if (quantity > 0) {
+
+        subtotal += service.price * quantity;
+        minutes += service.minutes * quantity;
+
+        selected.push(
+          quantity + " × " + service.name
+        );
+
+      }
+
+    });
+
+    if (selected.length === 0 && !error) {
+      error = "Select at least one service.";
+    }
+
+  }
+
+  const total = subtotal + travel;
+  const deposit = Math.round(total * 15) / 100;
+  const balance = total - deposit;
+
+  el("selected-summary").textContent =
+    selected.length
+      ? selected.join(" • ")
+      : "No services selected.";
+
+  el("summary-duration").textContent =
+    minutes > 0 ? minutes + " minutes" : "—";
+
+  el("summary-subtotal").textContent =
+    money(subtotal);
+
+  el("summary-travel").textContent =
+    customQuote ? "Custom quote" :
+    error ? "—" :
+    house && selected.length &&
+    Number(el("adult-count").value) +
+    Number(el("kid-count").value) > 1
+      ? "WAIVED"
+      : money(travel);
+
+  el("summary-total").textContent =
+    customQuote ? "Custom quote" :
+    error ? "—" : money(total);
+
+  el("summary-deposit").textContent =
+    customQuote ? "Pending quote" :
+    error ? "—" : money(deposit);
+
+  el("summary-balance").textContent =
+    customQuote ? "Pending quote" :
+    error ? "—" : money(balance);
+
+  el("booking-error").textContent =
+    error || (customQuote
+      ? "Your final price and deposit will be provided after review."
+      : "");
+
+  /* SAVE DETAILS FOR NETLIFY FORMS */
+
+  el("saved-booking-type").value =
+    house ? "House Call" : "Regular Appointment";
+
+  el("saved-service").value = selected.join("; ");
+  el("saved-services").value = selected.join("; ");
+
+  el("saved-total").value =
+    error ? "" :
+    customQuote ? "Custom quote" : money(total);
+
+  el("saved-deposit").value =
+    error ? "" :
+    customQuote ? "Pending quote" : money(deposit);
+
+  el("saved-balance").value =
+    error ? "" :
+    customQuote ? "Pending quote" : money(balance);
+
+  el("saved-duration").value = minutes + " minutes";
+
+  el("submit-booking").disabled = Boolean(error);
+
+  el("submit-booking").textContent =
+    customQuote && !error
+      ? "REQUEST CUSTOM QUOTE ↗"
+      : "REQUEST APPOINTMENT ↗";
+
+  return !error;
+
+}
+
+/* SERVICE PRESELECTION FROM PRICES PAGE */
+
+const requestedService =
+  new URLSearchParams(location.search).get("service");
+
+if (requestedService === "12") {
+
+  el("appointment-type").value = "house";
+  el("kid-count").value = 1;
+
+} else if (requestedService === "13") {
+
+  el("appointment-type").value = "house";
+  el("adult-count").value = 1;
+
+} else if (
+  requestedService !== null &&
+  services.some(s => String(s.id) === requestedService)
+) {
+
+  el("qty-" + requestedService).value = 1;
+
+}
+
+/* EVENT LISTENERS */
+
+el("appointment-type")
+  .addEventListener("change", updateType);
+
+form.addEventListener("input", calculateBooking);
+form.addEventListener("change", calculateBooking);
+
+form.addEventListener("submit", event => {
+
+  if (!calculateBooking() || !form.checkValidity()) {
+
+    event.preventDefault();
+    form.reportValidity();
+
+  }
+
+});
+
+/* MOBILE NAVIGATION */
+
+const toggle = document.querySelector(".menu-toggle");
+const nav = el("site-nav");
+
+toggle.addEventListener("click", () => {
+
+  const open = nav.classList.toggle("open");
+
+  toggle.setAttribute(
+    "aria-expanded", String(open)
+  );
+
+  toggle.setAttribute(
+    "aria-label",
+    open ? "Close navigation" : "Open navigation"
+  );
+
+});
+
+el("year").textContent = new Date().getFullYear();
+
+updateType();
+
+</script>
+
+</body>
+</html>
+
