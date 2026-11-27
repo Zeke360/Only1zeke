@@ -1,0 +1,761 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#09090b">
+
+<title>Booking Policies | Only1Zeke</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+:root {
+  --policy-red: #e52435;
+  --policy-dark: #09090b;
+  --policy-card: #151517;
+  --policy-white: #ffffff;
+  --policy-muted: #bcbcbc;
+}
+
+body {
+  background: var(--policy-dark);
+  color: var(--policy-white);
+}
+
+.policy-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.policy-hero {
+  text-align: center;
+  padding: 45px 20px;
+  margin-bottom: 30px;
+  background: linear-gradient(145deg,#25090e,#101012);
+  border: 1px solid #74202a;
+  border-radius: 15px;
+}
+
+.policy-hero h1 {
+  font-size: clamp(30px,5vw,52px);
+  font-weight: 900;
+  margin: 15px 0;
+}
+
+.policy-hero p {
+  color: var(--policy-muted);
+  line-height: 1.7;
+}
+
+.policy-highlight {
+  background: #281014;
+  border: 1px solid var(--policy-red);
+  border-radius: 10px;
+  padding: 25px;
+  margin: 25px 0;
+}
+
+.policy-highlight h2 {
+  color: var(--policy-red);
+}
+
+.payment-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.payment-card {
+  background: #101012;
+  border: 1px solid #444;
+  padding: 25px 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.payment-card strong {
+  display: block;
+  font-size: 45px;
+  color: var(--policy-red);
+}
+
+.payment-card span {
+  color: white;
+  font-weight: bold;
+}
+
+.policy-card {
+  background: var(--policy-card);
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 25px;
+  margin: 20px 0;
+}
+
+.policy-card h2 {
+  color: white;
+  border-left: 4px solid var(--policy-red);
+  padding-left: 12px;
+  font-size: 23px;
+  margin-bottom: 18px;
+}
+
+.policy-card p,
+.policy-card li {
+  color: #dedede;
+  line-height: 1.8;
+}
+
+.policy-card li {
+  margin-bottom: 10px;
+}
+
+.policy-card strong {
+  color: white;
+}
+
+.policy-warning {
+  color: #ff7b87;
+  font-weight: bold;
+}
+
+.policy-table-wrap {
+  overflow-x: auto;
+}
+
+.policy-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.policy-table th {
+  background: #a91826;
+  color: white;
+}
+
+.policy-table th,
+.policy-table td {
+  border: 1px solid #444;
+  padding: 14px;
+  text-align: left;
+}
+
+.policy-table td {
+  background: #101012;
+  color: white;
+}
+
+.policy-cta {
+  text-align: center;
+  background: #151517;
+  border: 1px solid #444;
+  padding: 35px 20px;
+  border-radius: 12px;
+  margin-top: 35px;
+}
+
+.policy-button {
+  display: inline-block;
+  background: #c91e2e;
+  color: white;
+  text-decoration: none;
+  font-weight: 900;
+  padding: 15px 25px;
+  border-radius: 7px;
+  margin: 8px;
+}
+
+.policy-button:hover {
+  background: #e52435;
+}
+
+.policy-button.secondary {
+  background: transparent;
+  border: 1px solid #e52435;
+}
+
+@media(max-width:600px) {
+
+  .policy-container {
+    padding: 20px 12px;
+  }
+
+  .policy-card {
+    padding: 18px;
+  }
+
+  .payment-card strong {
+    font-size: 35px;
+  }
+
+  .policy-table td,
+  .policy-table th {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+
+<a class="brand" href="index.html">
+  <span class="brand-mark">1Z</span>
+  <span>
+    ONLY<span class="red">1</span>ZEKE
+    <small>ZERO ERRORS. KILLER EDGES.</small>
+  </span>
+</a>
+
+<button class="menu-toggle"
+  aria-expanded="false"
+  aria-controls="site-nav"
+  aria-label="Open navigation">☰</button>
+
+<nav id="site-nav" aria-label="Main navigation">
+
+  <a href="index.html">Home</a>
+  <a href="prices.html">Services & Prices</a>
+  <a href="schedule.html">Schedule</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="mission.html">Our Mission</a>
+  <a href="rewards.html">Rewards</a>
+  <a href="contact.html">Contact</a>
+  <a href="policies.html" class="active">Policies</a>
+
+</nav>
+
+</header>
+
+<main class="policy-container">
+
+<section class="policy-hero">
+
+<p class="eyebrow">RESPECT THE TIME. RESPECT THE CRAFT.</p>
+
+<h1>BOOKING <span class="red">POLICIES</span></h1>
+
+<p>
+Please review our appointment terms and conditions
+before requesting a service. These policies help
+Only1Zeke provide professional, reliable and
+quality barber services to every customer.
+</p>
+
+</section>
+
+<section class="policy-highlight">
+
+<h2>APPOINTMENT PAYMENT REQUIREMENTS</h2>
+
+<p>
+Your booking deposit is applied directly toward
+your requested service total. It is not an
+additional booking fee.
+</p>
+
+<div class="payment-grid">
+
+<div class="payment-card">
+  <strong>50%</strong>
+  <span>BOOKING DEPOSIT</span>
+  <p>Required to confirm</p>
+</div>
+
+<div class="payment-card">
+  <strong>50%</strong>
+  <span>REMAINING BALANCE</span>
+  <p>Due at appointment</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="policy-card">
+
+<h2>01 — Booking & Appointment Confirmation</h2>
+
+<ul>
+
+<li>
+All appointment requests are subject to barber
+availability and approval.
+</li>
+
+<li>
+A 50% deposit of the total requested service
+cost is required to confirm an appointment.
+</li>
+
+<li>
+The remaining balance is due at the appointment.
+</li>
+
+<li>
+Submitting an appointment request does not
+automatically confirm your appointment.
+</li>
+
+<li>
+Customers must provide accurate contact
+information and requested service details.
+</li>
+
+</ul>
+
+</section>
+
+<section class="policy-card">
+
+<h2>02 — Cancellation & Deposit Refunds</h2>
+
+<p>
+Customers must request cancellation within
+<strong>24 hours of making their confirmed booking</strong>
+to qualify for a deposit refund.
+</p>
+
+<ul>
+
+<li>
+Cancellation must occur before the scheduled
+appointment begins.
+</li>
+
+<li>
+Cancellations requested after the 24-hour
+booking window will result in forfeiture
+of the original deposit.
+</li>
+
+<li>
+Missed appointments do not qualify for
+a deposit refund.
+</li>
+
+<li>
+Customers should contact Only1Zeke directly
+to request cancellation and refund review.
+</li>
+
+</ul>
+
+<p class="policy-warning">
+The 24-hour refund window begins when your
+appointment is confirmed, not 24 hours before
+your scheduled appointment.
+</p>
+
+</section>
+
+<section class="policy-card">
+
+<h2>03 — Late Arrival Policy</h2>
+
+<p>
+Only1Zeke provides a
+<strong>10-minute grace period</strong>
+for scheduled appointments.
+</p>
+
+<ul>
+
+<li>
+Customers are expected to arrive on time.
+</li>
+
+<li>
+Customers arriving more than 10 minutes late
+may have their appointment canceled.
+</li>
+
+<li>
+Late arrivals resulting in cancellation may
+result in forfeiture of the booking deposit.
+</li>
+
+<li>
+Please contact the barber immediately if
+you anticipate arriving late.
+</li>
+
+</ul>
+
+</section>
+
+<section class="policy-card">
+
+<h2>04 — No-Show Policy</h2>
+
+<p>
+A no-show occurs when a customer fails to
+attend a confirmed appointment without
+canceling before the appointment begins.
+</p>
+
+<ul>
+
+<li>
+The original booking deposit will be forfeited.
+</li>
+
+<li>
+Customers who fail to attend a confirmed
+appointment will be restricted from making
+future bookings with Only1Zeke.
+</li>
+
+</ul>
+
+<p class="policy-warning">
+NO-SHOW CUSTOMERS WILL LOSE FUTURE BOOKING
+PRIVILEGES.
+</p>
+
+</section>
+
+<section class="policy-card">
+
+<h2>05 — Customer Rescheduling</h2>
+
+<p>
+Free rescheduling is not available when
+a customer requests to change a confirmed
+appointment.
+</p>
+
+<ul>
+
+<li>
+The original booking deposit will be forfeited
+when the customer chooses to reschedule.
+</li>
+
+<li>
+A new 50% booking deposit is required to
+confirm the replacement appointment.
+</li>
+
+<li>
+The new appointment is subject to barber
+availability and approval.
+</li>
+
+<li>
+The new deposit will be credited toward
+the replacement appointment's service total.
+</li>
+
+</ul>
+
+<p>
+This rescheduling policy is separate from
+the eligible cancellation refund policy.
+</p>
+
+</section>
+
+<section class="policy-card">
+
+<h2>06 — Same-Day Appointments</h2>
+
+<p>
+Same-day appointments are subject to
+availability and an additional
+<strong>$20.00 surcharge per appointment.</strong>
+</p>
+
+<p>
+The surcharge is added to the service total
+before calculating the required 50% deposit.
+</p>
+
+<div class="policy-table-wrap">
+
+<table class="policy-table">
+
+<thead>
+<tr>
+  <th>Payment breakdown</th>
+  <th>Amount</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+  <td>Example service price</td>
+  <td>$45.00</td>
+</tr>
+
+<tr>
+  <td>Same-day surcharge</td>
+  <td>$20.00</td>
+</tr>
+
+<tr>
+  <td>Total appointment price</td>
+  <td>$65.00</td>
+</tr>
+
+<tr>
+  <td>Required 50% deposit</td>
+  <td>$32.50</td>
+</tr>
+
+<tr>
+  <td>Remaining balance</td>
+  <td>$32.50</td>
+</tr>
+
+</tbody>
+</table>
+
+</div>
+
+</section>
+
+<section class="policy-card">
+
+<h2>07 — Barber Cancellation</h2>
+
+<p>
+If Only1Zeke cancels a confirmed appointment,
+the customer may choose either:
+</p>
+
+<ul>
+
+<li>
+A full refund of the deposit paid for
+the canceled appointment.
+</li>
+
+<li>
+Free rescheduling with the original deposit
+transferred to the replacement appointment.
+</li>
+
+</ul>
+
+<p>
+No additional rescheduling fee or replacement
+deposit is required for a barber-initiated
+cancellation when the same service is rebooked.
+</p>
+
+</section>
+
+<section class="policy-card">
+
+<h2>08 — Mobile House-Call Services</h2>
+
+<p>
+House-call services originate from Buffalo,
+New York.
+</p>
+
+<ul>
+
+<li>
+Adult house calls start at $60.00.
+</li>
+
+<li>
+Kids house calls start at $40.00.
+</li>
+
+<li>
+Single-client house-call prices vary based
+on one-way travel distance.
+</li>
+
+<li>
+Single-client appointments over 45 miles
+require a custom quote.
+</li>
+
+<li>
+Customers must provide an accurate
+service address.
+</li>
+
+<li>
+Two or more clients receiving house-call
+services at the same location qualify for
+waived travel fees.
+</li>
+
+</ul>
+
+<div class="policy-table-wrap">
+
+<table class="policy-table">
+
+<thead>
+
+<tr>
+  <th>Distance</th>
+  <th>Kids</th>
+  <th>Adults</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr><td>0–5 miles</td><td>$40</td><td>$60</td></tr>
+<tr><td>6–10 miles</td><td>$45</td><td>$65</td></tr>
+<tr><td>11–15 miles</td><td>$50</td><td>$70</td></tr>
+<tr><td>16–20 miles</td><td>$55</td><td>$75</td></tr>
+<tr><td>21–25 miles</td><td>$60</td><td>$80</td></tr>
+<tr><td>26–35 miles</td><td>$70</td><td>$90</td></tr>
+<tr><td>36–45 miles</td><td>$80</td><td>$100</td></tr>
+<tr><td>Over 45 miles</td><td>Custom quote</td><td>Custom quote</td></tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<p>
+The distance table applies to individual
+house-call appointments. Group house calls
+receive the base per-person service price
+with waived travel fees.
+</p>
+
+</section>
+
+<section class="policy-card">
+
+<h2>09 — Accepted Payments</h2>
+
+<p>
+Only1Zeke accepts the following payment methods:
+</p>
+
+<ul>
+
+<li>Square Tap to Pay</li>
+<li>Credit cards</li>
+<li>Debit cards</li>
+<li>Cash</li>
+
+</ul>
+
+<p>
+Online deposit checkout is currently being
+prepared. Contact Only1Zeke for deposit
+payment instructions.
+</p>
+
+<p>
+Never submit credit or debit card information
+through the appointment request form.
+</p>
+
+</section>
+
+<section class="policy-card">
+
+<h2>10 — Customer Agreement</h2>
+
+<p>
+Customers are expected to review and
+acknowledge these booking policies before
+requesting an appointment.
+</p>
+
+<p>
+These policies apply subject to applicable
+consumer protection laws and do not limit
+any rights or remedies provided by law.
+</p>
+
+<p>
+Any changes to booking policies will apply
+to future bookings and will not retroactively
+change the agreed terms of an existing
+confirmed appointment.
+</p>
+
+</section>
+
+<section class="policy-cta">
+
+<h2>READY FOR YOUR NEXT FRESH CUT?</h2>
+
+<p>
+Look Good. Feel Good. Stay Fresh.
+</p>
+
+<a class="policy-button" href="schedule.html">
+REQUEST APPOINTMENT
+</a>
+
+<a class="policy-button secondary"
+   href="tel:+17168660688">
+CONTACT BARBER
+</a>
+
+<p>Buffalo, New York</p>
+
+<p>(716) 866-0688</p>
+
+</section>
+
+</main>
+
+<footer>
+
+<div>
+
+<strong>ONLY<span class="red">1</span>ZEKE</strong>
+
+<p>Look Good. Feel Good. Stay Fresh.</p>
+
+</div>
+
+<div>
+
+<p>Buffalo, New York</p>
+
+<p>
+<a href="tel:+17168660688">
+(716) 866-0688
+</a>
+</p>
+
+<p>
+<a href="policies.html">Booking Policies</a>
+</p>
+
+<p>Square Tap to Pay • Card • Cash</p>
+
+</div>
+
+<p class="footnote">
+© <span id="year"></span> Only1Zeke.
+All rights reserved.
+</p>
+
+</footer>
+
+<script src="app.js" defer></script>
+
+</body>
+</html>
