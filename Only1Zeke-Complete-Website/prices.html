@@ -1,1 +1,628 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#09090b"><meta name="description" content="Only1Zeke barber service prices and appointment durations."><title>Services &amp; Prices | Only1Zeke</title><link rel="stylesheet" href="style.css"></head><body><header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">1Z</span><span>ONLY<span class="red">1</span>ZEKE<small>ZERO ERRORS. KILLER EDGES.</small></span></a><button class="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">☰</button><nav id="site-nav" aria-label="Main navigation"><a href="index.html" class="">Home</a><a href="prices.html" class="active">Services & Prices</a><a href="schedule.html" class="">Schedule</a><a href="gallery.html" class="">Gallery</a><a href="mission.html" class="">Our Mission</a><a href="rewards.html" class="">Rewards</a><a href="contact.html" class="">Contact</a></nav></header><main class="page-main"><div class="page-heading"><p class="eyebrow">THE MENU</p><h1>SERVICES <span class="red">& PRICES.</span></h1><p>Clear prices. Precision service. Choose your look and request a date.</p></div><div class="price-list"><article class="price-card"><div><h3>20 Dollar Mondays — Kids Cuts</h3><p>Monday-only kids haircut special.</p><span class="duration">◷ 30 MIN</span></div><div class="price-end"><strong>$20</strong><a href="schedule.html?service=0">SELECT ↗</a></div></article><article class="price-card"><div><h3>Haircut, Beard &amp; Hot Towel Experience</h3><p>Haircut and beard service with a hot towel finish.</p><span class="duration">◷ 45 MIN</span></div><div class="price-end"><strong>$40</strong><a href="schedule.html?service=1">SELECT ↗</a></div></article><article class="price-card"><div><h3>Hair Cut</h3><p>Full haircut with a clean lineup and razor finish.</p><span class="duration">◷ 35 MIN</span></div><div class="price-end"><strong>$30</strong><a href="schedule.html?service=2">SELECT ↗</a></div></article><article class="price-card"><div><h3>Full Head &amp; Face Shave</h3><p>Full head and face razor shave with hot towels and premium oils.</p><span class="duration">◷ 35 MIN</span></div><div class="price-end"><strong>$40</strong><a href="schedule.html?service=3">SELECT ↗</a></div></article><article class="price-card"><div><h3>Crisp Hair &amp; Beard Lineup</h3><p>Precision edge-up for a clean, defined look.</p><span class="duration">◷ 15 MIN</span></div><div class="price-end"><strong>$20</strong><a href="schedule.html?service=4">SELECT ↗</a></div></article><article class="price-card"><div><h3>Face Shave</h3><p>Face razor shave with optional steamer and hot towel service.</p><span class="duration">◷ 20 MIN</span></div><div class="price-end"><strong>$20</strong><a href="schedule.html?service=5">SELECT ↗</a></div></article><article class="price-card"><div><h3>Eyebrows</h3><p>Eyebrow grooming.</p><span class="duration">◷ 10 MIN</span></div><div class="price-end"><strong>$10</strong><a href="schedule.html?service=6">SELECT ↗</a></div></article><article class="price-card"><div><h3>Kids Cuts</h3><p>Age-appropriate haircut with a clean finish.</p><span class="duration">◷ 30 MIN</span></div><div class="price-end"><strong>$25</strong><a href="schedule.html?service=7">SELECT ↗</a></div></article><article class="price-card"><div><h3>Kids Specialty Cuts</h3><p>Kids cut with enhancements or designs where applicable.</p><span class="duration">◷ 40 MIN</span></div><div class="price-end"><strong>$30</strong><a href="schedule.html?service=8">SELECT ↗</a></div></article><article class="price-card"><div><h3>Facials</h3><p>Cleansing facial treatment.</p><span class="duration">◷ 10 MIN</span></div><div class="price-end"><strong>$20</strong><a href="schedule.html?service=9">SELECT ↗</a></div></article><article class="price-card"><div><h3>Enhancements / Shampoo</h3><p>Hair enhancement or shampoo service.</p><span class="duration">◷ 15 MIN</span></div><div class="price-end"><strong>$10</strong><a href="schedule.html?service=10">SELECT ↗</a></div></article><article class="price-card"><div><h3>Beard Trim / Line Up</h3><p>Shape, trim and define your beard.</p><span class="duration">◷ 10 MIN</span></div><div class="price-end"><strong>$15</strong><a href="schedule.html?service=11">SELECT ↗</a></div></article><article class="price-card"><div><h3>Kid House Calls</h3><p>Mobile barber service for kids; location confirmation required.</p><span class="duration">◷ 35 MIN</span></div><div class="price-end"><strong>$30</strong><a href="schedule.html?service=12">SELECT ↗</a></div></article><article class="price-card"><div><h3>Adult House Calls</h3><p>Mobile barber service for adults; location confirmation required.</p><span class="duration">◷ 35 MIN</span></div><div class="price-end"><strong>$60</strong><a href="schedule.html?service=13">SELECT ↗</a></div></article><article class="price-card"><div><h3>Ears + Nose Wax</h3><p>Quick ear and nose waxing.</p><span class="duration">◷ 5 MIN</span></div><div class="price-end"><strong>$10</strong><a href="schedule.html?service=14">SELECT ↗</a></div></article></div><aside class="info-band"><h2>PAY YOUR WAY.</h2><p>Square Tap to Pay · Card · Cash</p><p class="muted">Payment is handled directly with the barber; no online checkout is enabled on this site.</p></aside></main><footer><div><strong>ONLY<span class="red">1</span>ZEKE</strong><p>Look Good. Feel Good. Stay Fresh.</p></div><div><p>Square Tap to Pay • Card • Cash</p><p>Appointments are subject to confirmation.</p></div><p class="footnote">© <span id="year"></span> Only1Zeke. All rights reserved.</p></footer><script src="app.js" defer></script></body></html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#09090b">
+<title>Services & Prices | Only1Zeke</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+.service-section {
+  margin: 45px 0;
+}
+
+.service-heading {
+  border-left: 5px solid #e52435;
+  padding-left: 15px;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.service-item {
+  background: #151517;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 22px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  transition: 0.25s;
+}
+
+.service-item:hover {
+  border-color: #e52435;
+  transform: translateY(-3px);
+}
+
+.service-item h3 {
+  color: white;
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.service-description {
+  color: #bcbcbc;
+  line-height: 1.6;
+  min-height: 55px;
+}
+
+.service-duration {
+  color: #aaa;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.service-amount {
+  color: #ff3949;
+  font-size: 34px;
+  font-weight: 900;
+  margin: 15px 0;
+}
+
+.payment-breakdown {
+  background: #09090b;
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 20px;
+}
+
+.payment-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 0;
+  font-size: 14px;
+}
+
+.payment-row strong {
+  color: white;
+}
+
+.service-book {
+  display: block;
+  background: #c91e2e;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 800;
+  padding: 14px;
+  border-radius: 6px;
+  margin-top: auto;
+}
+
+.service-book:hover {
+  background: #a51523;
+}
+
+.special-banner {
+  background: linear-gradient(120deg, #8b101b, #201013);
+  color: white;
+  padding: 28px;
+  border: 1px solid #e52435;
+  border-radius: 12px;
+  margin: 25px 0;
+}
+
+.special-banner h2 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.category-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 25px 0;
+}
+
+.category-nav a {
+  background: #18181b;
+  border: 1px solid #444;
+  color: white;
+  padding: 12px 18px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.category-nav a:hover {
+  border-color: #e52435;
+}
+
+.distance-table-wrap {
+  overflow-x: auto;
+  margin: 25px 0;
+}
+
+.distance-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #151517;
+  color: white;
+}
+
+.distance-table th,
+.distance-table td {
+  padding: 15px;
+  border: 1px solid #333;
+  text-align: center;
+}
+
+.distance-table th {
+  background: #a91826;
+  color: white;
+}
+
+.distance-table tr:nth-child(even) {
+  background: #202023;
+}
+
+.payment-policy {
+  background: #151517;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 25px;
+  margin: 35px 0;
+  color: white;
+}
+
+.service-section {
+  scroll-margin-top: 120px;
+}
+
+@media (max-width: 600px) {
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .distance-table th,
+  .distance-table td {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .category-nav a {
+    flex: 1 1 40%;
+    text-align: center;
+    font-size: 13px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+
+<a class="brand" href="index.html">
+  <span class="brand-mark">1Z</span>
+  <span>
+    ONLY<span class="red">1</span>ZEKE
+    <small>ZERO ERRORS. KILLER EDGES.</small>
+  </span>
+</a>
+
+<button class="menu-toggle"
+  aria-expanded="false"
+  aria-controls="site-nav"
+  aria-label="Open navigation">☰</button>
+
+<nav id="site-nav" aria-label="Main navigation">
+  <a href="index.html">Home</a>
+  <a href="prices.html" class="active">Services & Prices</a>
+  <a href="schedule.html">Schedule</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="mission.html">Our Mission</a>
+  <a href="rewards.html">Rewards</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+</header>
+
+<main class="page-main">
+
+<p class="eyebrow">PREMIUM BARBERING</p>
+
+<h1>SERVICES & <span class="red">PRICES.</span></h1>
+
+<p class="lead">
+Precision cuts. Professional grooming.
+Transparent pricing. Look good, feel good,
+and stay fresh.
+</p>
+
+<div class="special-banner">
+  <h2>$20 MONDAYS</h2>
+  <p>Kids' haircuts for only $20 every Monday.</p>
+  <p>Required booking deposit: $3.00</p>
+  <a class="service-book" href="schedule.html?service=0">
+    REQUEST MONDAY SPECIAL
+  </a>
+</div>
+
+<div class="category-nav">
+  <a href="#adult-services">Adult Services</a>
+  <a href="#kids-services">Kids Services</a>
+  <a href="#grooming-services">Grooming & Add-ons</a>
+  <a href="#house-calls">House Calls</a>
+</div>
+
+<section id="adult-services" class="service-section">
+
+<h2 class="service-heading">Adult Barber Services</h2>
+
+<div id="adult-grid" class="service-grid"></div>
+
+</section>
+
+<section id="kids-services" class="service-section">
+
+<h2 class="service-heading">Kids Barber Services</h2>
+
+<div id="kids-grid" class="service-grid"></div>
+
+</section>
+
+<section id="grooming-services" class="service-section">
+
+<h2 class="service-heading">Grooming & Add-ons</h2>
+
+<div id="grooming-grid" class="service-grid"></div>
+
+</section>
+
+<section id="house-calls" class="service-section">
+
+<h2 class="service-heading">Mobile Barber Services</h2>
+
+<p>
+Professional house-call barber services
+starting from Buffalo, New York.
+Enjoy a fresh haircut in the comfort
+of your own home.
+</p>
+
+<div id="house-grid" class="service-grid"></div>
+
+<div class="special-banner">
+
+<h2>GROUP HOUSE CALL SPECIAL</h2>
+
+<p>
+Book two or more clients at the same
+location and receive waived travel fees.
+</p>
+
+<p>Kids: $40 per person</p>
+<p>Adults: $60 per person</p>
+
+<p>
+Two adults: $120<br>
+Two kids: $80<br>
+One adult and one kid: $100
+</p>
+
+</div>
+
+<h2>HOUSE CALL DISTANCE PRICING</h2>
+
+<p>
+One-way distance from Buffalo, NY.
+Prices below apply to single-client house calls.
+</p>
+
+<div class="distance-table-wrap">
+
+<table class="distance-table">
+<thead>
+<tr>
+  <th>Distance</th>
+  <th>Kids</th>
+  <th>Adults</th>
+</tr>
+</thead>
+
+<tbody>
+<tr><td>0–5 miles</td><td>$40</td><td>$60</td></tr>
+<tr><td>6–10 miles</td><td>$45</td><td>$65</td></tr>
+<tr><td>11–15 miles</td><td>$50</td><td>$70</td></tr>
+<tr><td>16–20 miles</td><td>$55</td><td>$75</td></tr>
+<tr><td>21–25 miles</td><td>$60</td><td>$80</td></tr>
+<tr><td>26–35 miles</td><td>$70</td><td>$90</td></tr>
+<tr><td>36–45 miles</td><td>$80</td><td>$100</td></tr>
+<tr><td>Over 45 miles</td><td>Custom Quote</td><td>Custom Quote</td></tr>
+</tbody>
+
+</table>
+
+</div>
+
+<p>
+Travel distance and final house-call
+pricing are subject to verification.
+</p>
+
+</section>
+
+<section class="payment-policy">
+
+<h2>BOOKING & PAYMENT POLICY</h2>
+
+<p>
+A 15% deposit is required to confirm
+your appointment.
+</p>
+
+<p>
+The remaining 85% is due at the appointment.
+</p>
+
+<p>
+Appointments are subject to availability
+and successful deposit payment.
+Online deposit checkout is currently
+being prepared.
+</p>
+
+<h3>Accepted Payment Methods</h3>
+
+<p>
+Square Tap to Pay • Credit Card • Debit Card • Cash
+</p>
+
+<a class="service-book" href="schedule.html">
+  REQUEST AN APPOINTMENT
+</a>
+
+</section>
+
+<section class="special-banner">
+
+<h2>QUESTIONS ABOUT A SERVICE?</h2>
+
+<p>Contact Only1Zeke directly.</p>
+
+<p>Buffalo, New York</p>
+
+<a class="service-book" href="tel:+17168660688">
+  CALL (716) 866-0688
+</a>
+
+</section>
+
+</main>
+
+<footer>
+<div>
+  <strong>ONLY<span class="red">1</span>ZEKE</strong>
+  <p>Look Good. Feel Good. Stay Fresh.</p>
+</div>
+
+<div>
+  <p>Square Tap to Pay • Card • Cash</p>
+  <p>Appointments are subject to confirmation.</p>
+</div>
+
+<p class="footnote">
+© <span id="year"></span> Only1Zeke.
+All rights reserved.
+</p>
+</footer>
+
+<script src="app.js" defer></script>
+
+<script>
+
+const menuServices = [
+
+{
+  id: 1,
+  group: "adult",
+  name: "Haircut, Beard & Hot Towel Experience",
+  price: 40,
+  minutes: 45,
+  description: "Precision haircut, beard grooming and a hot towel finish."
+},
+
+{
+  id: 2,
+  group: "adult",
+  name: "Haircut",
+  price: 30,
+  minutes: 35,
+  description: "Full haircut with a clean lineup and razor finish."
+},
+
+{
+  id: 3,
+  group: "adult",
+  name: "Full Head & Face Shave",
+  price: 40,
+  minutes: 35,
+  description: "Full head and face razor shave with hot towels and premium oils."
+},
+
+{
+  id: 4,
+  group: "adult",
+  name: "Crisp Hair & Beard Lineup",
+  price: 20,
+  minutes: 15,
+  description: "Precision edge-up for a clean and defined look."
+},
+
+{
+  id: 5,
+  group: "adult",
+  name: "Face Shave",
+  price: 20,
+  minutes: 20,
+  description: "Face razor shave with optional steamer and hot towel service."
+},
+
+{
+  id: 11,
+  group: "adult",
+  name: "Beard Trim / Lineup",
+  price: 15,
+  minutes: 10,
+  description: "Shape, trim and define your beard."
+},
+
+{
+  id: 0,
+  group: "kids",
+  name: "$20 Mondays — Kids Cuts",
+  price: 20,
+  minutes: 30,
+  description: "Special kids haircut pricing available on Mondays only."
+},
+
+{
+  id: 7,
+  group: "kids",
+  name: "Kids Cuts",
+  price: 25,
+  minutes: 30,
+  description: "Age-appropriate haircut with a clean finish."
+},
+
+{
+  id: 8,
+  group: "kids",
+  name: "Kids Specialty Cuts",
+  price: 30,
+  minutes: 40,
+  description: "Kids haircut with enhancements or designs where applicable."
+},
+
+{
+  id: 6,
+  group: "grooming",
+  name: "Eyebrows",
+  price: 10,
+  minutes: 10,
+  description: "Professional eyebrow grooming."
+},
+
+{
+  id: 9,
+  group: "grooming",
+  name: "Facials",
+  price: 20,
+  minutes: 10,
+  description: "Cleansing facial treatment."
+},
+
+{
+  id: 10,
+  group: "grooming",
+  name: "Enhancements / Shampoo",
+  price: 10,
+  minutes: 15,
+  description: "Hair enhancement or shampoo service."
+},
+
+{
+  id: 14,
+  group: "grooming",
+  name: "Ears & Nose Wax",
+  price: 10,
+  minutes: 5,
+  description: "Quick ear and nose waxing service."
+},
+
+{
+  id: 12,
+  group: "house",
+  name: "Kids House Calls",
+  price: 40,
+  minutes: 35,
+  description: "Mobile barber service for kids. Travel pricing may apply."
+},
+
+{
+  id: 13,
+  group: "house",
+  name: "Adult House Calls",
+  price: 60,
+  minutes: 35,
+  description: "Professional mobile barber service for adults. Travel pricing may apply."
+}
+
+];
+
+function formatMoney(amount) {
+  return "$" + amount.toFixed(2);
+}
+
+menuServices.forEach(item => {
+
+  const deposit = Math.round(item.price * 15) / 100;
+  const balance = item.price - deposit;
+  const mobile = item.group === "house";
+
+  const grid = document.getElementById(
+    item.group + "-grid"
+  );
+
+  const card = document.createElement("article");
+
+  card.className = "service-item";
+
+  card.innerHTML = `
+
+    <span class="service-duration">
+      ◷ ${item.minutes} MINUTES
+      ${mobile ? " PER CLIENT" : ""}
+    </span>
+
+    <h3>${item.name}</h3>
+
+    <p class="service-description">
+      ${item.description}
+    </p>
+
+    <div class="service-amount">
+      ${mobile ? "From " : ""}
+      ${formatMoney(item.price)}
+    </div>
+
+    <div class="payment-breakdown">
+
+      <div class="payment-row">
+        <span>${mobile ? "Starting deposit" : "15% deposit"}</span>
+        <strong>${formatMoney(deposit)}</strong>
+      </div>
+
+      <div class="payment-row">
+        <span>${mobile ? "Starting balance" : "Due at appointment"}</span>
+        <strong>${formatMoney(balance)}</strong>
+      </div>
+
+    </div>
+
+    <a class="service-book"
+      href="schedule.html?service=${item.id}">
+      BOOK THIS SERVICE ↗
+    </a>
+
+  `;
+
+  grid.appendChild(card);
+
+});
+
+</script>
+
+</body>
+</html>
