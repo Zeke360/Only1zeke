@@ -214,8 +214,8 @@ and stay fresh.
 <div class="booking-notice">
   <strong>BOOKING REQUIREMENT</strong>
   <p>
-    A 15% deposit is required to confirm
-    your appointment. The remaining 85%
+    A 50% deposit is required to confirm
+    your appointment. The remaining 50%
     is due at your appointment.
   </p>
   <p>
@@ -458,7 +458,7 @@ No services selected.
 </div>
 
 <div class="summary-row">
-  <span>Required 15% deposit</span>
+  <span>Required 50% deposit</span>
   <strong class="deposit-amount"
     id="summary-deposit">$0.00</strong>
 </div>
@@ -754,7 +754,7 @@ function calculateBooking() {
   }
 
   const total = subtotal + travel;
-  const deposit = Math.round(total * 15) / 100;
+  const deposit = Math.round(total * 50) / 100;
   const balance = total - deposit;
 
   el("selected-summary").textContent =
